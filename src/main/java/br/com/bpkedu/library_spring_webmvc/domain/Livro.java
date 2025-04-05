@@ -74,5 +74,15 @@ public class Livro {
         this.anoPublicacao = anoPublicacao;
     }
 
-
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", anoPublicacao=" + anoPublicacao +
+                ", isbn='" + isbn + '\'' +
+                ", editora='" + editora + '\'' +
+                '}';
+    }
 }

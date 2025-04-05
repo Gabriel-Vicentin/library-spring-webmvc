@@ -50,8 +50,6 @@ public class LivroController {
         return "redirect:/livros/listar"; // Redireciona para a listagem de livros
     }
 
-
-
     @GetMapping("/deletar/{id:\\d+}")
     public String deletarLivro(@PathVariable Long id) {
         livroService.deletar(id);

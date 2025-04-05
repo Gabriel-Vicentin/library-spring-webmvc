@@ -1,31 +1,14 @@
-package br.com.bpkedu.library_spring_webmvc.domain;
+package br.com.bpkedu.library_spring_webmvc.dto;
 
+import br.com.bpkedu.library_spring_webmvc.domain.Usuario;
 
-import jakarta.persistence.*;
+public class UsuarioDTO {
 
-@Entity
-@Table(name = "usuarios")
-public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String senha;
     private String endereco;
     private String telefone;
-
-
-    public Usuario() {
-    }
-
-    public Usuario(Long id, String nome, String senha, String endereco, String telefone) {
-        this.id = id;
-        this.nome = nome;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.telefone = telefone;
-    }
 
     public Long getId() {
         return id;
@@ -67,16 +50,14 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", telefone='" + telefone + '\'' +
-                '}';
+    public Usuario toUsuario(UsuarioDTO usuarioDTO) {
+
+        return new Usuario(
+                this.id,
+                this.nome,
+                this.senha,
+                this.endereco,
+                this.telefone
+        );
     }
 }
-
-
