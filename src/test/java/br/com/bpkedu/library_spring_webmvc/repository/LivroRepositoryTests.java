@@ -28,11 +28,25 @@ public class LivroRepositoryTests {
 
         System.out.println(livro.get());
 
-        Livro updatelivro = livro.get();
-        updatelivro.setAutor("Russel Norvig");
+        Livro updateLivro = livro.get();
+        updateLivro.setAutor("Russel Norvig");
 
-        updatelivro = livroRepository.save(updatelivro);
 
-        List<Livro> livros = livroRepository.findByTitulo("Inteligencia artificial uma abordagem moderna");
+        updateLivro = livroRepository.save(updateLivro);
+
+
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Testando busca por Título e Autor");
+        List<Livro> livros = livroRepository.findByTituloAndAutor(
+            "Inteligência Artificial uma Abordagem Moderna",
+            "Russel Norvig");
+
+
+
+        for (Livro l : livros) {
+            System.out.println(l);
+        }
+
     }
+
 }
